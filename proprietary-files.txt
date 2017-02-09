@@ -49,6 +49,7 @@ etc/camera/imx230_lg_chromatix.xml
 etc/camera/ov8865_chromatix.xml
 etc/camera/ov8865_ofilm_chromatix.xml
 etc/camera/msm8996_camera.xml
+lib64/libcameraservice.so
 lib/hw/camera.msm8996.so
 lib/libarcsoft_beautyshot.so
 lib/libarcsoft_face_detection.so
