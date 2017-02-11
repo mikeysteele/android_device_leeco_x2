@@ -470,10 +470,9 @@ on property:persist.sys.ssr.enable_ramdumps=0
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
-    # Reset the read_ahead_kb to 256
-    write /sys/block/dm-0/queue/read_ahead_kb 256
-    write /sys/block/sda/queue/read_ahead_kb 256
-    write /sys/block/sde/queue/read_ahead_kb 256
+
+    # Reset the read_ahead_kb to 512
+    write /sys/block/dm-0/queue/read_ahead_kb 512
 
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
@@ -1107,15 +1106,15 @@ service ifaadaemon /system/bin/ifaadaemon
     group system
     writepid /dev/cpuset/system-background/tasks
 
-#service yep_qmi_server /system/bin/yep_qmi_server
-#    class core
-#    user root
-#    #seclabel u:r:yep_qmi_server:s0
+service yep_qmi_server /system/bin/yep_qmi_server
+    class core
+    user root
+    #seclabel u:r:yep_qmi_server:s0
 
-#service yep_diag /system/bin/yepdiag
-#    class core
-#    user root
-#    #seclabel u:r:yepdiag:s0
+service yep_diag /system/bin/yepdiag
+    class core
+    user root
+    #seclabel u:r:yepdiag:s0
 
 # letv
 on property:init.svc.qmuxd=running
